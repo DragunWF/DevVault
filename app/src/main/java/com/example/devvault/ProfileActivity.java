@@ -2,11 +2,13 @@ package com.example.devvault;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -25,9 +27,17 @@ public class ProfileActivity extends AppCompatActivity {
             ideaTextView = findViewById(R.id.ideaTextView);
             otherTextView = findViewById(R.id.otherTextView);
             setButtons();
+            displayProfileData();
         } catch (Exception err) {
             Utils.toast(this, err.getMessage());
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void displayProfileData() {
+        capsulesTextView.setText("Total Capsules: " + SessionData.getCapsuleCount());
+        milestoneTextView.setText("Milestone Capsules: " + SessionData.getCapsuleTypeCount("Milestone"));
+        ideaTextView.setText("Idea Capsules: " + SessionData.getCapsuleTypeCount("Idea"));
     }
 
     private void setButtons() {

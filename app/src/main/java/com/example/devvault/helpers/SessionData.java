@@ -3,7 +3,7 @@ package com.example.devvault.helpers;
 import com.example.devvault.data.Capsule;
 
 public class SessionData {
-    private static String[] types = new String[] { "Milestone", "Idea", "Skill" };
+    private static String[] types = new String[] { "Milestone", "Idea", "Productivity", "Aspiration" };
     private static int viewedCapsuleId = 1;
 
     public static String[] getTypes() {
