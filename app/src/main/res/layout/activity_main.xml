@@ -22,7 +22,7 @@
         android:id="@+id/searchView"
         android:layout_width="170dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/search_view_container"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +30,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/capsuleRecyclerView"
-        android:layout_width="360dp"
+        android:layout_width="357dp"
         android:layout_height="530dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/recycler_view_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
@@ -53,16 +52,16 @@
         app:layout_constraintTop_toBottomOf="@+id/capsuleRecyclerView"
         app:layout_constraintVertical_bias="0.354"
         app:strokeColor="#222831"
-        app:strokeWidth="4dp" />
+        app:strokeWidth="5dp" />
 
     <ImageView
         android:id="@+id/profileImageView"
         android:layout_width="69dp"
         android:layout_height="63dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/profile" />
+        tools:srcCompat="@drawable/account" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
