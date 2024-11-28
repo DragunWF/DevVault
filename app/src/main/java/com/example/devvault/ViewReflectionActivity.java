@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.devvault.data.Capsule;
+import com.example.devvault.data.Reflection;
+import com.example.devvault.helpers.DatabaseHelper;
+import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
 public class ViewReflectionActivity extends AppCompatActivity {
@@ -15,6 +19,10 @@ public class ViewReflectionActivity extends AppCompatActivity {
     private TextView capsuleTitleTextView, dateCreatedTextView, openedDateTextView;
     private EditText reflectionEditText;
     private Button submitReflectionBtn;
+
+    private Capsule capsule;
+    private Reflection reflection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +34,30 @@ public class ViewReflectionActivity extends AppCompatActivity {
             openedDateTextView = findViewById(R.id.openedDateTextView);
             reflectionEditText = findViewById(R.id.reflectionEditText);
             submitReflectionBtn = findViewById(R.id.submitReflectionBtn);
+
+            capsule = DatabaseHelper.getCapsuleById(SessionData.getViewedCapsuleId());
+            reflection = DatabaseHelper.getReflectionByCapsuleId(capsule.getId());
+
+            setCapsuleData();
+            setButtons();
         } catch (Exception err) {
-            Utils.toast(this, err.getMessage());
+            Utils.longToast(this, err.getMessage());
         }
     }
+
+    private void setCapsuleData() {
+        if (reflection != null) {
+            reflectionEditText.setText(reflection.getContent());
+        }
+
+        capsuleTitleTextView.setText(capsule.getTitle());
+        openedDateTextView.setText(capsule.getOpeningDate());
+    }
+
     private void setButtons() {
         submitReflectionBtn.setOnClickListener(v -> {
-
+            String reflection = reflectionEditText.toString();
+            Utils.toast(ViewReflectionActivity.this, reflection);
         });
     }
 }

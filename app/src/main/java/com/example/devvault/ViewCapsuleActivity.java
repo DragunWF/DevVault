@@ -3,6 +3,7 @@ package com.example.devvault;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -58,9 +59,13 @@ public class ViewCapsuleActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
+        if (DatabaseHelper.getReflectionByCapsuleId(capsule.getId()) != null) {
+            addReflectionButton.setText("Edit Reflection");
+        }
+
         // backImageView.setOnClickListener(v -> finish());
         addReflectionButton.setOnClickListener(v -> {
-
+            startActivity(new Intent(ViewCapsuleActivity.this, ViewReflectionActivity.class));
         });
     }
 }

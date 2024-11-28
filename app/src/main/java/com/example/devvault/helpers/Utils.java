@@ -1,6 +1,7 @@
 package com.example.devvault.helpers;
 
 import android.content.Context;
+import android.text.Editable;
 import android.widget.EditText;
 import android.widget.Toast;
 
