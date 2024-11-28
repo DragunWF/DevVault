@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.devvault.data.Capsule;
+import com.example.devvault.data.Reflection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class DatabaseHelper {
 
     private static String FILE_KEY = "db";
     private static String CAPSULE_KEY = "capsules";
+    private static String REFLECTION_KEY = "reflections";
 
     private static String ITEM_DELIMITER = ";";
     private static String FIELD_DELIMITER = ",";
@@ -30,10 +32,26 @@ public class DatabaseHelper {
         saveCapsules(capsules);
     }
 
+    public static void addReflection(Reflection reflection) {
+        List<Reflection> reflections = getReflections();
+        reflection.setId(reflections.size() - 1);
+        reflections.add(reflection);
+        saveReflections(reflections);
+    }
+
     public static Capsule getCapsuleById(int id) {
         for (Capsule capsule : getCapsules()) {
             if (capsule.getId() == id) {
                 return capsule;
+            }
+        }
+        return null;
+    }
+
+    public static Reflection getReflectionByCapsuleId(int capsuleId) {
+        for (Reflection reflection : getReflections()) {
+            if (reflection.getCapsuleId() == capsuleId) {
+                return reflection;
             }
         }
         return null;
@@ -52,9 +70,17 @@ public class DatabaseHelper {
         return data;
     }
 
-    public static void resetDatabase() {
-        editor.clear();
-        editor.apply();
+    public static List<Reflection> getReflections() {
+        final int FIELD_LENGTH_LIMIT = 3;
+        List<Reflection> data = new ArrayList<>();
+        String items = sharedPref.getString(REFLECTION_KEY, "None");
+        for (String item : items.split(ITEM_DELIMITER)) {
+            String[] fields = item.split(FIELD_DELIMITER);
+            if (fields.length == FIELD_LENGTH_LIMIT) {
+                data.add(new Reflection(Integer.parseInt(fields[0]), Integer.parseInt(fields[1]), fields[2]));
+            }
+        }
+        return data;
     }
 
     public static void saveCapsules(List<Capsule> capsules) {
@@ -82,7 +108,30 @@ public class DatabaseHelper {
         editor.apply();
     }
 
+    public static void saveReflections(List<Reflection> reflections) {
+        StringBuilder data = new StringBuilder();
+        for (int i = 0; i < reflections.size(); i++) {
+            Reflection reflection = reflections.get(i);
+            if (i != 0 || i != reflections.size() - 1) {
+                data.append(ITEM_DELIMITER);
+            }
+            data.append(reflection.getId())
+                    .append(FIELD_DELIMITER)
+                    .append(reflection.getCapsuleId())
+                    .append(FIELD_DELIMITER)
+                    .append(reflection.getContent());
+        }
+        editor.putString(REFLECTION_KEY, data.toString());
+        editor.apply();
+    }
+
+    public static void resetDatabase() {
+        editor.clear();
+        editor.apply();
+    }
+
     public static void logCapsules() {
+        // This method is primarily used for testing
         System.out.println("Capsules in the database");
         for (Capsule capsule : getCapsules()) {
             System.out.println(capsule.toString());
