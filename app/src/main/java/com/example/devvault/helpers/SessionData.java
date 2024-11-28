@@ -1,5 +1,7 @@
 package com.example.devvault.helpers;
 
+import com.example.devvault.data.Capsule;
+
 public class SessionData {
     private static String[] types = new String[] { "Milestone", "Idea", "Skill" };
     private static int viewedCapsuleId = 1;
@@ -18,5 +20,23 @@ public class SessionData {
 
     public static void setViewedCapsuleId(int viewedCapsuleId) {
         SessionData.viewedCapsuleId = viewedCapsuleId;
+    }
+
+    public static int getReflectionCount() {
+        return DatabaseHelper.getReflections().size();
+    }
+
+    public static int getCapsuleCount() {
+        return DatabaseHelper.getCapsules().size();
+    }
+
+    public static int getCapsuleTypeCount(String type) {
+        int count = 0;
+        for (Capsule capsule : DatabaseHelper.getCapsules()) {
+            if (capsule.getType().equalsIgnoreCase(type)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
