@@ -33,6 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/capsuleRecyclerView"
         android:layout_margin="5dp"
+        android:paddingLeft="5dp"
         android:layout_width="356dp"
         android:layout_height="663dp"
         android:layout_marginBottom="24dp"
