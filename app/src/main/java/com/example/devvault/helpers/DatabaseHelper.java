@@ -14,6 +14,7 @@ public class DatabaseHelper {
 
     private static String FILE_KEY = "db";
     private static String CAPSULE_KEY = "capsules";
+
     private static String ITEM_DELIMITER = ";";
     private static String FIELD_DELIMITER = ",";
 

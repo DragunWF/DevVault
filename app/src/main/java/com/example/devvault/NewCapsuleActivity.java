@@ -19,7 +19,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
     private EditText titleEditText,  descriptionEditText, codeEditText, tagsEditText,
                      dayEditText, monthEditText, yearEditText;
     private Button saveCapsuleBtn;
-    private Spinner typeEditText;
+    private Spinner typeSpinner;
 
     private HashMap<Integer, Integer> monthDayLimits = new HashMap<>();
 
@@ -31,7 +31,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
             DatabaseHelper.initialize(this);
             backImageView = findViewById(R.id.backImageView);
             titleEditText = findViewById(R.id.titleEditText);
-            typeEditText = findViewById(R.id.typeEditText);
+            typeSpinner = findViewById(R.id.typeEditText);
             descriptionEditText = findViewById(R.id.descriptionEditText);
             codeEditText = findViewById(R.id.snippetEditText);
             tagsEditText = findViewById(R.id.tagsEditText);
@@ -63,9 +63,9 @@ public class NewCapsuleActivity extends AppCompatActivity {
         backImageView.setOnClickListener(v -> finish());
         saveCapsuleBtn.setOnClickListener(v -> {
             String title = Utils.getString(titleEditText);
-            String type = Utils.getString(typeEditText);
             String description = Utils.getString(descriptionEditText);
             String codeSnippet = Utils.getString(codeEditText);
+            String type = "milestone"; // temporary
             String tags = Utils.getString(tagsEditText);
             String dayStr = Utils.getString(dayEditText);
             String monthStr = Utils.getString(monthEditText);
@@ -109,7 +109,6 @@ public class NewCapsuleActivity extends AppCompatActivity {
 
     private void resetEditText() {
         titleEditText.setText("");
-        typeEditText.setText("");
         descriptionEditText.setText("");
         codeEditText.setText("");
         tagsEditText.setText("");
