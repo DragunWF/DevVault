@@ -26,6 +26,8 @@ public class NewCapsuleActivity extends AppCompatActivity {
     private Spinner typeSpinner;
 
     private HashMap<Integer, Integer> monthDayLimits = new HashMap<>();
+    private String[] types = SessionData.getTypes();
+    private String typeSelected = types[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +73,14 @@ public class NewCapsuleActivity extends AppCompatActivity {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(spinnerAdapter);
 
-        typeSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                typeSelected = types[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
@@ -85,7 +92,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
             String title = Utils.getString(titleEditText);
             String description = Utils.getString(descriptionEditText);
             String codeSnippet = Utils.getString(codeEditText);
-            String type = "milestone"; // temporary
+            String type = typeSelected;
             String tags = Utils.getString(tagsEditText);
             String dayStr = Utils.getString(dayEditText);
             String monthStr = Utils.getString(monthEditText);
