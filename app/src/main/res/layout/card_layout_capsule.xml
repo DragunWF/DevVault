@@ -28,7 +28,7 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="219dp"
                 android:layout_height="42dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="TextView"
                 android:textAlignment="center"

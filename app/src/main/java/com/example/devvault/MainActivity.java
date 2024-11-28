@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
 
-    private Button addCapsuleBtn;
+    private Button addCapsuleBtn, refreshBtn;
     private ImageView profileImageView;
     private Spinner typeSpinner;
 
     private List<Capsule> capsules;
-    private String[] types = SessionData.getTypes();
-    private String typeSelected = types[0];
+    private List<String> types = new ArrayList<>();
+    private String typeSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +50,18 @@ public class MainActivity extends AppCompatActivity {
             addCapsuleBtn = findViewById(R.id.addCapsuleBtn);
             profileImageView = findViewById(R.id.profileImageView);
             typeSpinner = findViewById(R.id.spinner);
+            refreshBtn = findViewById(R.id.refreshBtn);
+
+            // Add options for spinner
+            types.add("Any");
+            for (String type : SessionData.getTypes()) {
+                types.add(type);
+            }
 
             DatabaseHelper.initialize(this);
             capsules = DatabaseHelper.getCapsules();
 
             DatabaseHelper.logCapsules();
-            // test(); // uncomment when testing
             setRecyclerView();
             setSearchView();
             setSpinner();
@@ -74,10 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 capsules.clear();
                 query = query.toLowerCase();
                 for (Capsule capsule : DatabaseHelper.getCapsules()) {
-                    if (capsule.getTitle().toLowerCase().contains(query) ||
-                        capsule.getDescription().toLowerCase().contains(query) ||
-                            capsule.getTags().toLowerCase().contains(query) ||
-                            capsule.getCodeSnippet().toLowerCase().contains(query)) {
+                    if (capsule.getTitle().toLowerCase().contains(query)) {
                         results.add(capsule);
                     }
                 }
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setSpinner() {
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, SessionData.getTypes()
+                this, android.R.layout.simple_spinner_item, types
         );
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinner.setAdapter(spinnerAdapter);
@@ -115,16 +118,22 @@ public class MainActivity extends AppCompatActivity {
         typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                typeSelected = types[i];
+                typeSelected = types.get(i);
                 capsules.clear();
-                List<Capsule> results = new ArrayList<>();
-                for (Capsule capsule : DatabaseHelper.getCapsules()) {
-                    if (capsule.getType().equalsIgnoreCase(typeSelected)) {
-                        results.add(capsule);
+                if (!typeSelected.equalsIgnoreCase("Any")) {
+                    List<Capsule> results = new ArrayList<>();
+                    for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                        if (capsule.getType().equalsIgnoreCase(typeSelected)) {
+                            results.add(capsule);
+                        }
                     }
-                }
-                for (Capsule result : results) {
-                    capsules.add(result);
+                    for (Capsule result : results) {
+                        capsules.add(result);
+                    }
+                } else {
+                    for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                        capsules.add(capsule);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -148,18 +157,14 @@ public class MainActivity extends AppCompatActivity {
         profileImageView.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ProfileActivity.class));
         });
-    }
 
-    private void test() {
-        // String title, String type, String description, String tags, String openingDate
-        DatabaseHelper.addCapsule(new Capsule("Acquired Python", "Skill", "Today I learned Python programming", "print('hello')", "#NewSkillLearned", "28/11/2019", Utils.getDateToday()));
-        DatabaseHelper.addCapsule(new Capsule("Acquired Java", "Skill", "Today I learned Java programming", "System.out.println(\"Hello World\"","#ILoveJava", "10/12/2022", Utils.getDateToday()));
-
-        System.out.println("Capsules in the database");
-        for (Capsule capsule : DatabaseHelper.getCapsules()) {
-            System.out.println(capsule.toString());
-        }
-
-        DatabaseHelper.resetDatabase();
+        refreshBtn.setOnClickListener(v -> {
+            capsules.clear();
+            for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                capsules.add(capsule);
+            }
+            Utils.toast(MainActivity.this, "Capsule data has been refreshed!");
+            adapter.notifyDataSetChanged();
+        });
     }
 }
