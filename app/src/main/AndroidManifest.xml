@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DevVault"
         tools:targetApi="31">
         <activity
+            android:name=".ViewCapsule"
+            android:exported="false" />
+        <activity
             android:name=".NewCapsuleActivity"
             android:exported="false" />
         <activity
