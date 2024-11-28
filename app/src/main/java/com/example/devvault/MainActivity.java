@@ -1,22 +1,33 @@
 package com.example.devvault;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.widget.SearchView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.devvault.data.Capsule;
+import com.example.devvault.helpers.CapsuleAdapter;
 import com.example.devvault.helpers.DatabaseHelper;
 import com.example.devvault.helpers.Utils;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private SearchView searchView;
+
     private RecyclerView capsuleRecyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.Adapter adapter;
+
     private Button addCapsuleBtn;
     private ImageView profileImageView;
+
+    private List<Capsule> capsules;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +38,52 @@ public class MainActivity extends AppCompatActivity {
             capsuleRecyclerView = findViewById(R.id.capsuleRecyclerView);
             addCapsuleBtn = findViewById(R.id.addCapsuleBtn);
             profileImageView = findViewById(R.id.profileImageView);
+
             DatabaseHelper.initialize(this);
+            capsules = DatabaseHelper.getCapsules();
+
             test();
+            setRecyclerView();
+            setSearchView();
+            setButtons();
         } catch (Exception err) {
-            Utils.toast(this, err.getMessage());
+            System.out.println(err.getMessage());
+            Utils.longToast(this, err.getMessage());
         }
+    }
+
+    private void setSearchView() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+    }
+
+    private void setRecyclerView() {
+        capsuleRecyclerView.setHasFixedSize(false);
+
+        layoutManager = new LinearLayoutManager(this);
+        capsuleRecyclerView.setLayoutManager(layoutManager);
+
+        adapter = new CapsuleAdapter(capsules);
+        capsuleRecyclerView.setAdapter(adapter);
+    }
+
+    private void setButtons() {
+        addCapsuleBtn.setOnClickListener(v -> {
+
+        });
+
+        profileImageView.setOnClickListener(v -> {
+
+        });
     }
 
     private void test() {
@@ -45,15 +97,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         DatabaseHelper.resetDatabase();
-    }
-
-    private void setButtons() {
-        addCapsuleBtn.setOnClickListener(v -> {
-
-        });
-
-        profileImageView.setOnClickListener(v -> {
-
-        });
     }
 }
