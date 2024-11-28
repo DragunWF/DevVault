@@ -52,6 +52,7 @@ public class ViewReflectionActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
+        backImageView.setOnClickListener(v -> finish());
         submitReflectionBtn.setOnClickListener(v -> {
             String reflection = Utils.getString(reflectionEditText);
             if (reflection.isEmpty()) {

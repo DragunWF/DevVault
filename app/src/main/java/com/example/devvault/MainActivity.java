@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         profileImageView.setOnClickListener(v -> {
-            // startActivity(new Intent(MainActivity.this, ));
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
         });
     }
 
