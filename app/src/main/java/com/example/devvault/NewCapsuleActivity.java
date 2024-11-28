@@ -3,6 +3,9 @@ package com.example.devvault;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,6 +13,7 @@ import android.widget.Spinner;
 
 import com.example.devvault.data.Capsule;
 import com.example.devvault.helpers.DatabaseHelper;
+import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
 import java.util.HashMap;
@@ -54,9 +58,25 @@ public class NewCapsuleActivity extends AppCompatActivity {
             monthDayLimits.put(12, 31);
 
             setButtons();
+            setSpinner();
         } catch (Exception err) {
             Utils.longToast(this, err.getMessage());
         }
+    }
+
+    private void setSpinner() {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, SessionData.getTypes()
+        );
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(spinnerAdapter);
+
+        typeSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
     }
 
     private void setButtons() {
@@ -78,6 +98,10 @@ public class NewCapsuleActivity extends AppCompatActivity {
                     Utils.longToast(NewCapsuleActivity.this, "Please do not leave any of the fields empty!");
                     return;
                 }
+            }
+            if (title.length() > 14) {
+                Utils.toast(NewCapsuleActivity.this, "Title cannot be more than 14 characters!");
+                return;
             }
 
             try {
