@@ -137,4 +137,12 @@ public class DatabaseHelper {
             System.out.println(capsule.toString());
         }
     }
+
+    public static void logReflections() {
+        // This method is used for testing
+        System.out.println("Reflections in the database");
+        for (Reflection reflection : getReflections()) {
+            System.out.println(reflection.toString());
+        }
+    }
 }
