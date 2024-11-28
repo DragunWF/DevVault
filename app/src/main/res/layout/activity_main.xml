@@ -30,8 +30,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/capsuleRecyclerView"
-        android:layout_width="357dp"
-        android:layout_height="530dp"
+        android:layout_width="356dp"
+        android:layout_height="689dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/recycler_view_background"
         app:layout_constraintBottom_toBottomOf="parent"
