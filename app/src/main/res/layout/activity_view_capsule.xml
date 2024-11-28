@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Capsule Title"
+        android:fontFamily="@font/nunito_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -50,6 +51,7 @@
                 android:layout_marginTop="4dp"
                 android:text="Date Created:"
                 android:textColor="@color/white"
+                android:fontFamily="@font/nunito_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,6 +62,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="4dp"
                 android:text="Opened Date:"
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,6 +75,7 @@
                 android:layout_marginTop="16dp"
                 android:text="dd/mm/yyyy"
                 android:textColor="@color/white"
+                android:fontFamily="@font/nunito_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -82,6 +86,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="44dp"
                 android:text="dd/mm/yyyy"
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -110,6 +115,7 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="28dp"
                 android:text="Type: "
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -133,6 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
+                        android:fontFamily="@font/nunito_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -145,6 +152,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:text="Tags: "
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView4" />
@@ -168,6 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
+                        android:fontFamily="@font/nunito_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -182,6 +191,7 @@
         android:layout_height="wrap_content"
         android:text="Add Reflection"
         android:backgroundTint="#00ADB5"
+        android:fontFamily="@font/nunito_semi_bold"
         app:cornerRadius="10dp"
         app:strokeWidth="5dp"
         app:strokeColor="#222831"
