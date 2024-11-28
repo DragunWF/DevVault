@@ -72,4 +72,11 @@ public class DatabaseHelper {
         editor.putString(CAPSULE_KEY, data.toString());
         editor.apply();
     }
+
+    public static void logCapsules() {
+        System.out.println("Capsules in the database");
+        for (Capsule capsule : getCapsules()) {
+            System.out.println(capsule.toString());
+        }
+    }
 }
