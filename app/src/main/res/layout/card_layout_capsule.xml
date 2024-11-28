@@ -4,72 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="0dp"
-    android:paddingTop="10dp"
-    android:background="#F4F4F4"
-    >
+    android:background="#393E46">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:padding="5dp"
         android:layout_margin="10dp"
-        app:cardCornerRadius="5dp"
-        android:background="#F4F4F4">
+        android:background="#F4F4F4"
+        app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp"
             android:layout_margin="10dp"
             android:background="#F4F4F4">
 
             <TextView
                 android:id="@+id/titleTextView"
-                android:layout_width="150dp"
-                android:layout_height="75dp"
+                android:layout_width="430dp"
+                android:layout_height="47dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/typeTextView"
-                android:layout_width="145dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="427dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="36dp"
                 android:fontFamily="@font/nunito_regular"
                 android:text="Type:"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
             <Button
                 android:id="@+id/viewBtn"
-                android:layout_width="134dp"
-                android:layout_height="50dp"
+                android:layout_width="364dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#D6890D"
-                app:strokeWidth="3dp"
                 android:fontFamily="@font/nunito_regular"
                 android:text="View"
                 android:textSize="15sp"
                 app:cornerRadius="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.514"
+                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeTextView"
-                app:layout_constraintVertical_bias="0.0"
-                app:strokeColor="#222831" />
+                app:layout_constraintVertical_bias="0.663"
+                app:strokeColor="#222831"
+                app:strokeWidth="3dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
