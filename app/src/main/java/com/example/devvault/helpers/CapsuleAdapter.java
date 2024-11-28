@@ -1,5 +1,6 @@
 package com.example.devvault.helpers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -75,6 +76,7 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
@@ -83,7 +85,7 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
         // viewHolder.getTextView().setText(localDataSet[position]);
         Capsule capsule = localDataSet.get(position);
         viewHolder.getTitleText().setText(capsule.getTitle());
-        viewHolder.getTypeText().setText(capsule.getType());
+        viewHolder.getTypeText().setText("Type: " + capsule.getType());
         viewHolder.getViewBtn().setOnClickListener(v -> {
             try {
                 SessionData.setViewedCapsuleId(capsule.getId());
