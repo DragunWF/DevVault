@@ -58,6 +58,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
+        backImageView.setOnClickListener(v -> finish());
         saveCapsuleBtn.setOnClickListener(v -> {
             String title = Utils.getString(titleEditText);
             String type = Utils.getString(typeEditText);
@@ -112,6 +113,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
         tagsEditText.setText("");
         dayEditText.setText("");
         monthEditText.setText("");
+        yearEditText.setText("");
         saveCapsuleBtn.setText("");
     }
 }

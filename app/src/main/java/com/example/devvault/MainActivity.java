@@ -1,6 +1,7 @@
 package com.example.devvault;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private void setRecyclerView() {
         capsuleRecyclerView.setHasFixedSize(false);
 
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(this, 2);
         capsuleRecyclerView.setLayoutManager(layoutManager);
 
         adapter = new CapsuleAdapter(capsules, this);
