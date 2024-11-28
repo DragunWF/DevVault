@@ -1,21 +1,32 @@
 package com.example.devvault;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.devvault.data.Capsule;
 import com.example.devvault.helpers.DatabaseHelper;
 import com.example.devvault.helpers.Utils;
 
 public class MainActivity extends AppCompatActivity {
-
+    private SearchView searchView;
+    private RecyclerView capsuleRecyclerView;
+    private Button addCapsuleBtn;
+    private ImageView profileImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Test
         try {
+            searchView = findViewById(R.id.searchView);
+            capsuleRecyclerView = findViewById(R.id.capsuleRecyclerView);
+            addCapsuleBtn = findViewById(R.id.addCapsuleBtn);
+            profileImageView = findViewById(R.id.profileImageView);
             DatabaseHelper.initialize(this);
             test();
         } catch (Exception err) {
@@ -34,5 +45,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         DatabaseHelper.resetDatabase();
+    }
+
+    private void setButtons() {
+        addCapsuleBtn.setOnClickListener(v -> {
+
+        });
+
+        profileImageView.setOnClickListener(v -> {
+
+        });
     }
 }
