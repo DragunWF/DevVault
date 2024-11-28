@@ -27,7 +27,7 @@ public class ViewCapsuleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_capsule);
         try {
-            // backImageView = findViewById(R.id.backImageView);
+            backImageView = findViewById(R.id.imageView);
             titleTextView = findViewById(R.id.capsuleTitleTextView);
             dateCreatedTextView = findViewById(R.id.dateCreatedTextView);
             openedDateTextView = findViewById(R.id.openedDateTextView);
@@ -64,7 +64,7 @@ public class ViewCapsuleActivity extends AppCompatActivity {
             addReflectionButton.setText("Edit Reflection");
         }
 
-        // backImageView.setOnClickListener(v -> finish());
+        backImageView.setOnClickListener(v -> finish());
         addReflectionButton.setOnClickListener(v -> {
             startActivity(new Intent(ViewCapsuleActivity.this, ViewReflectionActivity.class));
         });
