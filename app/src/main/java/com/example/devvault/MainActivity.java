@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         capsuleRecyclerView.setLayoutManager(layoutManager);
 
-        adapter = new CapsuleAdapter(capsules);
+        adapter = new CapsuleAdapter(capsules, this);
         capsuleRecyclerView.setAdapter(adapter);
     }
 
