@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             DatabaseHelper.logCapsules();
             // test(); // uncomment when testing
-            // setRecyclerView();
+            setRecyclerView();
             setSearchView();
             setButtons();
         } catch (Exception err) {

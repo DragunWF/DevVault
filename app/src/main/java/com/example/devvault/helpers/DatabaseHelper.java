@@ -29,11 +29,19 @@ public class DatabaseHelper {
         saveCapsules(capsules);
     }
 
+    public static Capsule getCapsuleById(int id) {
+        for (Capsule capsule : getCapsules()) {
+            if (capsule.getId() == id) {
+                return capsule;
+            }
+        }
+        return null;
+    }
+
     public static List<Capsule> getCapsules() {
         final int FIELD_LENGTH_LIMIT = 7;
         List<Capsule> data = new ArrayList<>();
         String items = sharedPref.getString(CAPSULE_KEY, "None");
-        System.out.println("Items: " + items);
         for (String item : items.split(ITEM_DELIMITER)) {
             String[] fields = item.split(FIELD_DELIMITER);
             if (fields.length == FIELD_LENGTH_LIMIT) {
