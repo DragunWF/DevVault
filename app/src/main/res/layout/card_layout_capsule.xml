@@ -5,20 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingEnd="0dp"
-    android:paddingTop="10dp">
+    android:paddingTop="10dp"
+    android:background="#F4F4F4"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:padding="5dp"
         android:layout_margin="10dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="5dp"
+        android:background="#F4F4F4">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:background="#F4F4F4">
 
             <TextView
                 android:id="@+id/titleTextView"
