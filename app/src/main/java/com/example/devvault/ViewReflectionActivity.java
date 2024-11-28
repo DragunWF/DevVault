@@ -56,7 +56,8 @@ public class ViewReflectionActivity extends AppCompatActivity {
             if (reflection.isEmpty()) {
                 Utils.toast(ViewReflectionActivity.this, "Your reflection is empty! Please type something to submit.");
             } else {
-                Utils.toast(ViewReflectionActivity.this, reflection);
+                DatabaseHelper.addReflection(new Reflection(capsule.getId(), reflection));
+                Utils.longToast(ViewReflectionActivity.this, "Reflection has been successfully set!");
             }
         });
     }
