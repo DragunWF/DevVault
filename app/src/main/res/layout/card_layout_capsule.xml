@@ -18,9 +18,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="466dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-
 
 
             android:background="#F4F4F4">
@@ -29,13 +28,13 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="219dp"
                 android:layout_height="42dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.327"
+                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +48,7 @@
                 android:textAlignment="textStart"
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
@@ -65,10 +64,10 @@
                 app:cornerRadius="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeTextView"
-                app:layout_constraintVertical_bias="0.561"
+                app:layout_constraintVertical_bias="0.695"
                 app:strokeColor="#222831"
                 app:strokeWidth="3dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
