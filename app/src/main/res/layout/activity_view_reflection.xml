@@ -16,6 +16,7 @@
         app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/back_button"
         tools:srcCompat="@drawable/back_button" />
 
     <TextView
