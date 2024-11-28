@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
 public class ProfileActivity extends AppCompatActivity {
-    private ImageView profileImageView, backImageView;
+    private Button backBtn;
     private TextView capsulesTextView, milestoneTextView, ideaTextView,
                      aspirationTextView, productivityTextView;
 
@@ -21,8 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         try {
-            profileImageView = findViewById(R.id.profileImageView);
-            backImageView = findViewById(R.id.backImageView);
+            backBtn = findViewById(R.id.backBtn);
             capsulesTextView = findViewById(R.id.capsulesTextView);
             milestoneTextView = findViewById(R.id.milestoneTextView);
             ideaTextView = findViewById(R.id.ideaTextView);
@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
-        backImageView.setOnClickListener(v -> {
+        backBtn.setOnClickListener(v -> {
             startActivity(new Intent(ProfileActivity.this, MainActivity.class));
         });
     }
