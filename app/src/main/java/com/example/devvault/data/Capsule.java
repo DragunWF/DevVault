@@ -8,18 +8,6 @@ public class Capsule {
     private String codeSnippet;
     private String tags;
     private String openingDate;
-    private String reflection;
-
-    public Capsule(int id, String title, String type, String description, String codeSnippet, String tags, String openingDate, String reflection) {
-        this.id = id;
-        this.title = title;
-        this.type = type;
-        this.description = description;
-        this.codeSnippet = codeSnippet;
-        this.tags = tags;
-        this.openingDate = openingDate;
-        this.reflection = reflection;
-    }
 
     public Capsule(int id, String title, String type, String description, String codeSnippet, String tags, String openingDate) {
         this.id = id;
@@ -57,10 +45,6 @@ public class Capsule {
         this.id = id;
     }
 
-    public void setReflection(String reflection) {
-        this.reflection = reflection;
-    }
-
     public int getId() {
         return id;
     }
@@ -87,9 +71,5 @@ public class Capsule {
 
     public String getOpeningDate() {
         return openingDate;
-    }
-
-    public String getReflection() {
-        return reflection;
     }
 }
