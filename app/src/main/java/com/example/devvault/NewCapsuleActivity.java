@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.example.devvault.data.Capsule;
 import com.example.devvault.helpers.DatabaseHelper;
@@ -15,9 +16,10 @@ import java.util.HashMap;
 
 public class NewCapsuleActivity extends AppCompatActivity {
     private ImageView backImageView;
-    private EditText titleEditText, typeEditText, descriptionEditText, codeEditText, tagsEditText,
+    private EditText titleEditText,  descriptionEditText, codeEditText, tagsEditText,
                      dayEditText, monthEditText, yearEditText;
     private Button saveCapsuleBtn;
+    private Spinner typeEditText;
 
     private HashMap<Integer, Integer> monthDayLimits = new HashMap<>();
 
