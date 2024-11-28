@@ -27,7 +27,6 @@ public class ViewReflectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_reflection);
-        try {
             backImageView = findViewById(R.id.backImageView);
             capsuleTitleTextView = findViewById(R.id.capsuleTitleTextView);
             dateCreatedTextView = findViewById(R.id.dateCreatedTextView);
@@ -40,9 +39,6 @@ public class ViewReflectionActivity extends AppCompatActivity {
 
             setCapsuleData();
             setButtons();
-        } catch (Exception err) {
-            Utils.longToast(this, err.getMessage());
-        }
     }
 
     private void setCapsuleData() {
@@ -56,8 +52,12 @@ public class ViewReflectionActivity extends AppCompatActivity {
 
     private void setButtons() {
         submitReflectionBtn.setOnClickListener(v -> {
-            String reflection = reflectionEditText.toString();
-            Utils.toast(ViewReflectionActivity.this, reflection);
+            String reflection = Utils.getString(reflectionEditText);
+            if (reflection.isEmpty()) {
+                Utils.toast(ViewReflectionActivity.this, "Your reflection is empty! Please type something to submit.");
+            } else {
+                Utils.toast(ViewReflectionActivity.this, reflection);
+            }
         });
     }
 }
