@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#222831" />
+        app:strokeColor="#303030" />
 
     <ImageView
         android:id="@+id/profileImageView"
