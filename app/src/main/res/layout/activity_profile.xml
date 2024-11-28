@@ -8,12 +8,13 @@
     tools:context=".ProfileActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
         android:layout_width="300dp"
         android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,28 +71,45 @@
                 app:layout_constraintTop_toBottomOf="@+id/milestoneTextView" />
 
             <TextView
-                android:id="@+id/otherTextView"
+                android:id="@+id/aspirationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Other :"
+                android:text="Aspiration :"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.102"
+                app:layout_constraintHorizontal_bias="0.12"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ideaTextView" />
+
+            <TextView
+                android:id="@+id/productivityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Productivity :"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aspirationTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/backImageView"
-        android:layout_width="54dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#D6890D"
+        app:strokeWidth="3dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Back to Home"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
