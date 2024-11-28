@@ -21,13 +21,24 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
      * (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        //private final TextView textView;
+        private final TextView titleText;
+        private final TextView typeText;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            //textView = (TextView) view.findViewById(R.id.textView);
+            // textView = (TextView) view.findViewById(R.id.textView);
+            titleText = view.findViewById(R.id.titleTextView);
+            typeText = view.findViewById(R.id.typeTextView);
+        }
+
+        public TextView getTitleText() {
+            return titleText;
+        }
+
+        public TextView getTypeText() {
+            return typeText;
         }
     }
 
@@ -45,11 +56,10 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
-        //View view = LayoutInflater.from(viewGroup.getContext())
-        //        .inflate(R.layout.text_row_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.card_layout_capsule, viewGroup, false);
 
-        //return new ViewHolder(view);
-        return null;
+        return new ViewHolder(view);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -60,6 +70,8 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
         // contents of the view with that element
         // viewHolder.getTextView().setText(localDataSet[position]);
         Capsule capsule = localDataSet.get(position);
+        viewHolder.getTitleText().setText(capsule.getTitle());
+        viewHolder.getTypeText().setText(capsule.getType());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

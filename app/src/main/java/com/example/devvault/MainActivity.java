@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
             DatabaseHelper.initialize(this);
             capsules = DatabaseHelper.getCapsules();
 
-            test();
+            DatabaseHelper.logCapsules();
+            // test(); // uncomment when testing
             setRecyclerView();
             setSearchView();
             setButtons();
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setButtons() {
         addCapsuleBtn.setOnClickListener(v -> {
-            // startActivity(new Intent(MainActivity.this, ));
+            startActivity(new Intent(MainActivity.this, NewCapsuleActivity.class));
         });
 
         profileImageView.setOnClickListener(v -> {
