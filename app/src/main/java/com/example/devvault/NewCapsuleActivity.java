@@ -132,7 +132,7 @@ public class NewCapsuleActivity extends AppCompatActivity {
                     String openingDate = String.format("%s/%s/%s", day, month, year);
                     String creationDate = Utils.getDateToday();
 
-                    Capsule capsule = new Capsule(title, type, description, codeSnippet, tags, openingDate);
+                    Capsule capsule = new Capsule(title, type, description, codeSnippet, tags, openingDate, creationDate);
                     DatabaseHelper.addCapsule(capsule);
                     Utils.longToast(NewCapsuleActivity.this, "Your capsule has been successfully submitted!");
                     resetEditText();

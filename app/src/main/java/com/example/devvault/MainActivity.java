@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     private void setRecyclerView() {
         capsuleRecyclerView.setHasFixedSize(false);
 
-        layoutManager = new GridLayoutManager(this, 2);
+        layoutManager = new LinearLayoutManager(this);
         capsuleRecyclerView.setLayoutManager(layoutManager);
 
         adapter = new CapsuleAdapter(capsules, this);
@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void test() {
         // String title, String type, String description, String tags, String openingDate
-        DatabaseHelper.addCapsule(new Capsule("Acquired Python", "Skill", "Today I learned Python programming", "print('hello')", "#NewSkillLearned", "28/11/2019"));
-        DatabaseHelper.addCapsule(new Capsule("Acquired Java", "Skill", "Today I learned Java programming", "System.out.println(\"Hello World\"","#ILoveJava", "10/12/2022"));
+        DatabaseHelper.addCapsule(new Capsule("Acquired Python", "Skill", "Today I learned Python programming", "print('hello')", "#NewSkillLearned", "28/11/2019", Utils.getDateToday()));
+        DatabaseHelper.addCapsule(new Capsule("Acquired Java", "Skill", "Today I learned Java programming", "System.out.println(\"Hello World\"","#ILoveJava", "10/12/2022", Utils.getDateToday()));
 
         System.out.println("Capsules in the database");
         for (Capsule capsule : DatabaseHelper.getCapsules()) {

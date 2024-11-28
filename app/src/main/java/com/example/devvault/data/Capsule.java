@@ -8,8 +8,9 @@ public class Capsule {
     private String codeSnippet;
     private String tags;
     private String openingDate;
+    private String creationDate;
 
-    public Capsule(int id, String title, String type, String description, String codeSnippet, String tags, String openingDate) {
+    public Capsule(int id, String title, String type, String description, String codeSnippet, String tags, String openingDate, String creationDate) {
         this.id = id;
         this.title = title;
         this.type = type;
@@ -17,15 +18,17 @@ public class Capsule {
         this.codeSnippet = codeSnippet;
         this.tags = tags;
         this.openingDate = openingDate;
+        this.creationDate = creationDate;
     }
 
-    public Capsule(String title, String type, String description, String codeSnippet, String tags, String openingDate) {
+    public Capsule(String title, String type, String description, String codeSnippet, String tags, String openingDate, String creationDate) {
         this.title = title;
         this.type = type;
         this.description = description;
         this.codeSnippet = codeSnippet;
         this.tags = tags;
         this.openingDate = openingDate;
+        this.creationDate = creationDate;
     }
 
     @Override
@@ -71,5 +74,9 @@ public class Capsule {
 
     public String getOpeningDate() {
         return openingDate;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
     }
 }
