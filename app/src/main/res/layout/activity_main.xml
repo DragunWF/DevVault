@@ -48,21 +48,38 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addCapsuleBtn"
-        android:layout_width="354dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="20dp"
+        android:id="@+id/refreshBtn"
+        android:layout_width="120dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#D6890D"
-        app:strokeWidth="3dp"
+        android:fontFamily="@font/nunito_semi_bold"
+        android:text="Refresh"
+        android:textSize="18sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#303030"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addCapsuleBtn"
+        android:layout_width="197dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#D6890D"
         android:fontFamily="@font/nunito_semi_bold"
         android:text="Add New Capsule"
         android:textSize="18sp"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.765"
         app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#303030" />
+        app:strokeColor="#303030"
+        app:strokeWidth="3dp" />
 
     <ImageView
         android:id="@+id/profileImageView"
