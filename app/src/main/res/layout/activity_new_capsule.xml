@@ -287,7 +287,8 @@
         android:layout_width="340dp"
         android:layout_height="60dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#00ADB5"
+        android:backgroundTint="#D6890D"
+        app:strokeWidth="3dp"
         android:fontFamily="@font/nunito_bold"
         android:text="Save Capsule"
         android:textSize="20sp"
@@ -299,5 +300,5 @@
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         app:layout_constraintVertical_bias="0.13999999"
         app:strokeColor="#222831"
-        app:strokeWidth="5dp" />
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,7 +53,8 @@
                 android:layout_width="134dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#00ADB5"
+                android:backgroundTint="#D6890D"
+                app:strokeWidth="3dp"
                 android:fontFamily="@font/nunito_regular"
                 android:text="View"
                 android:textSize="15sp"
@@ -64,8 +65,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeTextView"
                 app:layout_constraintVertical_bias="0.0"
-                app:strokeColor="#222831"
-                app:strokeWidth="3dp" />
+                app:strokeColor="#222831" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
