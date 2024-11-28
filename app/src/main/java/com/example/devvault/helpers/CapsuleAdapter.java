@@ -1,6 +1,7 @@
 package com.example.devvault.helpers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.devvault.R;
+import com.example.devvault.ViewCapsuleActivity;
 import com.example.devvault.data.Capsule;
 
 import java.util.List;
@@ -86,6 +88,7 @@ public class CapsuleAdapter extends RecyclerView.Adapter<CapsuleAdapter.ViewHold
             try {
                 SessionData.setViewedCapsuleId(capsule.getId());
                 // Utils.toast(context, "ID: " + SessionData.getViewedCapsuleId()); // For debugging only
+                context.startActivity(new Intent(context, ViewCapsuleActivity.class));
             } catch (Exception err) {
                 System.out.println(err.getMessage());
                 Utils.toast(context, "Something unexpected occurred while trying to view this capsule!");

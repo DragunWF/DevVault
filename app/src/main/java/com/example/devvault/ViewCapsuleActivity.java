@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.devvault.helpers.Utils;
 
-public class ViewCapsule extends AppCompatActivity {
+public class ViewCapsuleActivity extends AppCompatActivity {
     ImageView backImageView;
     TextView dateCreatedTextView, openedDateTextView, typeTextView, descriptionTextView, tagsTextView;
     Button addReflectionButton;
