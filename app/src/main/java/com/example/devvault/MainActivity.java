@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.widget.SearchView;
 import android.os.Bundle;
 import android.widget.Button;
@@ -95,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setButtons() {
         addCapsuleBtn.setOnClickListener(v -> {
-
+            // startActivity(new Intent(MainActivity.this, ));
         });
 
         profileImageView.setOnClickListener(v -> {
-
+            // startActivity(new Intent(MainActivity.this, ));
         });
     }
 
