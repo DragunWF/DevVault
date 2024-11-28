@@ -14,6 +14,8 @@ import com.example.devvault.helpers.CapsuleAdapter;
 import com.example.devvault.helpers.DatabaseHelper;
 import com.example.devvault.helpers.Utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                List<Capsule> results = new ArrayList<>();
+                capsules.clear();
+                query = query.toLowerCase();
+                for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                    if (capsule.getTitle().toLowerCase().contains(query) ||
+                        capsule.getDescription().toLowerCase().contains(query) ||
+                            capsule.getTags().toLowerCase().contains(query) ||
+                            capsule.getCodeSnippet().toLowerCase().contains(query)) {
+                        results.add(capsule);
+                    }
+                }
+                for (Capsule result : results) {
+                    capsules.add(result);
+                }
+                adapter.notifyDataSetChanged();
                 return false;
             }
 
@@ -88,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void test() {
         // String title, String type, String description, String tags, String openingDate
-        DatabaseHelper.addCapsule(new Capsule("Acquired Python", "Skill", "Today I learned Python programming", "#NewSkillLearned", "28/11/2019"));
-        DatabaseHelper.addCapsule(new Capsule("Acquired Java", "Skill", "Today I learned Java programming", "#ILoveJava", "10/12/2022"));
+        DatabaseHelper.addCapsule(new Capsule("Acquired Python", "Skill", "Today I learned Python programming", "print('hello')", "#NewSkillLearned", "28/11/2019"));
+        DatabaseHelper.addCapsule(new Capsule("Acquired Java", "Skill", "Today I learned Java programming", "System.out.println(\"Hello World\"","#ILoveJava", "10/12/2022"));
 
         System.out.println("Capsules in the database");
         for (Capsule capsule : DatabaseHelper.getCapsules()) {
