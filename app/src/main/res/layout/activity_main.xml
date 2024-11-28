@@ -65,15 +65,15 @@
 
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="60dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="128dp"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="28dp"
+        android:src="@drawable/account_btn"
         app:layout_constraintBottom_toTopOf="@+id/capsuleRecyclerView"
         app:layout_constraintStart_toEndOf="@+id/searchView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.186"
-        android:src="@drawable/user"
-        tools:srcCompat="@drawable/user" />
+        app:layout_constraintVertical_bias="0.025"
+        tools:srcCompat="@drawable/account_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
