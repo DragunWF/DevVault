@@ -151,6 +151,5 @@ public class NewCapsuleActivity extends AppCompatActivity {
         dayEditText.setText("");
         monthEditText.setText("");
         yearEditText.setText("");
-        saveCapsuleBtn.setText("");
     }
 }
