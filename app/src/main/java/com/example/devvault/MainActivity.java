@@ -6,14 +6,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.example.devvault.data.Capsule;
 import com.example.devvault.helpers.CapsuleAdapter;
 import com.example.devvault.helpers.DatabaseHelper;
+import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
 import java.util.ArrayList;
@@ -29,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addCapsuleBtn;
     private ImageView profileImageView;
+    private Spinner typeSpinner;
 
     private List<Capsule> capsules;
+    private String[] types = SessionData.getTypes();
+    private String typeSelected = types[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             capsuleRecyclerView = findViewById(R.id.capsuleRecyclerView);
             addCapsuleBtn = findViewById(R.id.addCapsuleBtn);
             profileImageView = findViewById(R.id.profileImageView);
+            typeSpinner = findViewById(R.id.spinner);
 
             DatabaseHelper.initialize(this);
             capsules = DatabaseHelper.getCapsules();
@@ -49,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             // test(); // uncomment when testing
             setRecyclerView();
             setSearchView();
+            setSpinner();
             setButtons();
         } catch (Exception err) {
             System.out.println(err.getMessage());
@@ -93,6 +103,41 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new CapsuleAdapter(capsules, this);
         capsuleRecyclerView.setAdapter(adapter);
+    }
+
+    private void setSpinner() {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, SessionData.getTypes()
+        );
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(spinnerAdapter);
+
+        typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                typeSelected = types[i];
+                capsules.clear();
+                List<Capsule> results = new ArrayList<>();
+                for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                    if (capsule.getType().equalsIgnoreCase(typeSelected)) {
+                        results.add(capsule);
+                    }
+                }
+                for (Capsule result : results) {
+                    capsules.add(result);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                capsules.clear();
+                for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                    capsules.add(capsule);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void setButtons() {
