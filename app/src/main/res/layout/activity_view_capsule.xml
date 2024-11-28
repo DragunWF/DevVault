@@ -69,7 +69,7 @@
                 android:layout_marginStart="108dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Opened Date:"
+                android:text="OpeningDate:"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toTopOf="parent" />
