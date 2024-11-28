@@ -13,7 +13,8 @@ import com.example.devvault.helpers.Utils;
 
 public class ProfileActivity extends AppCompatActivity {
     private ImageView profileImageView, backImageView;
-    private TextView capsulesTextView, milestoneTextView, ideaTextView, otherTextView;
+    private TextView capsulesTextView, milestoneTextView, ideaTextView,
+                     aspirationTextView, productivityTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,8 @@ public class ProfileActivity extends AppCompatActivity {
             capsulesTextView = findViewById(R.id.capsulesTextView);
             milestoneTextView = findViewById(R.id.milestoneTextView);
             ideaTextView = findViewById(R.id.ideaTextView);
-            otherTextView = findViewById(R.id.otherTextView);
+            aspirationTextView = findViewById(R.id.aspirationTextView);
+            productivityTextView = findViewById(R.id.productivityTextView);
             setButtons();
             displayProfileData();
         } catch (Exception err) {
@@ -38,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
         capsulesTextView.setText("Total Capsules: " + SessionData.getCapsuleCount());
         milestoneTextView.setText("Milestone Capsules: " + SessionData.getCapsuleTypeCount("Milestone"));
         ideaTextView.setText("Idea Capsules: " + SessionData.getCapsuleTypeCount("Idea"));
+        aspirationTextView.setText("Aspiration Capsules: " + SessionData.getCapsuleTypeCount("Aspiration"));
+        productivityTextView.setText("Productivity Capsules: " + SessionData.getCapsuleTypeCount("Productivity"));
     }
 
     private void setButtons() {
