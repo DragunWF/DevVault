@@ -6,50 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/search_view_container"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/profileImageView"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toEndOf="@+id/searchView"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="215dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/search_view_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/capsuleRecyclerView"
-        android:layout_width="359dp"
-        android:layout_height="510dp"
-        android:layout_marginBottom="120dp"
+        android:layout_width="360dp"
+        android:layout_height="530dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/recycler_view_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addCapsuleBtn"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Add"
+        android:layout_width="354dp"
+        android:layout_height="60dp"
         android:backgroundTint="#00ADB5"
-        app:cornerRadius="10dp"
-        app:strokeWidth="5dp"
-        app:strokeColor="#222831"
+        android:text="Add"
+        app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capsuleRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/capsuleRecyclerView"
+        app:layout_constraintVertical_bias="0.354"
+        app:strokeColor="#222831"
+        app:strokeWidth="4dp" />
 
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="67dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
-        app:layout_constraintStart_toEndOf="@+id/searchView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
