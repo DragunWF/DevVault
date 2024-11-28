@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
 
-    private Button addCapsuleBtn;
+    private Button addCapsuleBtn, refreshBtn;
     private ImageView profileImageView;
     private Spinner typeSpinner;
 
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             addCapsuleBtn = findViewById(R.id.addCapsuleBtn);
             profileImageView = findViewById(R.id.profileImageView);
             typeSpinner = findViewById(R.id.spinner);
+            refreshBtn = findViewById(R.id.refreshBtn);
 
             // Add options for spinner
             types.add("Any");
@@ -155,6 +156,15 @@ public class MainActivity extends AppCompatActivity {
 
         profileImageView.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        });
+
+        refreshBtn.setOnClickListener(v -> {
+            capsules.clear();
+            for (Capsule capsule : DatabaseHelper.getCapsules()) {
+                capsules.add(capsule);
+            }
+            Utils.toast(MainActivity.this, "Capsule data has been refreshed!");
+            adapter.notifyDataSetChanged();
         });
     }
 }
