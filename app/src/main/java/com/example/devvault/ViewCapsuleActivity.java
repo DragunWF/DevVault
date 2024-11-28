@@ -51,6 +51,7 @@ public class ViewCapsuleActivity extends AppCompatActivity {
     private void setCapsuleData() {
         titleTextView.setText(capsule.getTitle());
         openedDateTextView.setText(capsule.getOpeningDate());
+        dateCreatedTextView.setText(capsule.getCreationDate());
         typeTextView.setText("Type: " + capsule.getType());
         descriptionTextView.setText(capsule.getDescription());
 

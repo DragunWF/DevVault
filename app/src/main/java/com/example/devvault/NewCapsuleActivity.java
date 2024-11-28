@@ -16,6 +16,9 @@ import com.example.devvault.helpers.DatabaseHelper;
 import com.example.devvault.helpers.SessionData;
 import com.example.devvault.helpers.Utils;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class NewCapsuleActivity extends AppCompatActivity {
@@ -126,8 +129,10 @@ public class NewCapsuleActivity extends AppCompatActivity {
                 } else if (day <= 0 || day > monthDayLimits.get(month)) {
                     Utils.toast(NewCapsuleActivity.this, "Invalid day!");
                 } else {
-                    String date = String.format("%s/%s/%s", day, month, year);
-                    Capsule capsule = new Capsule(title, type, description, codeSnippet, tags, date);
+                    String openingDate = String.format("%s/%s/%s", day, month, year);
+                    String creationDate = Utils.getDateToday();
+
+                    Capsule capsule = new Capsule(title, type, description, codeSnippet, tags, openingDate, creationDate);
                     DatabaseHelper.addCapsule(capsule);
                     Utils.longToast(NewCapsuleActivity.this, "Your capsule has been successfully submitted!");
                     resetEditText();

@@ -58,13 +58,13 @@ public class DatabaseHelper {
     }
 
     public static List<Capsule> getCapsules() {
-        final int FIELD_LENGTH_LIMIT = 7;
+        final int FIELD_LENGTH_LIMIT = 8;
         List<Capsule> data = new ArrayList<>();
         String items = sharedPref.getString(CAPSULE_KEY, "None");
         for (String item : items.split(ITEM_DELIMITER)) {
             String[] fields = item.split(FIELD_DELIMITER);
             if (fields.length == FIELD_LENGTH_LIMIT) {
-                data.add(new Capsule(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3], fields[4], fields[5], fields[6]));
+                data.add(new Capsule(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]));
             }
         }
         return data;
@@ -102,7 +102,9 @@ public class DatabaseHelper {
                     .append(FIELD_DELIMITER)
                     .append(capsule.getTags())
                     .append(FIELD_DELIMITER)
-                    .append(capsule.getOpeningDate());
+                    .append(capsule.getOpeningDate())
+                    .append(FIELD_DELIMITER)
+                    .append(capsule.getCreationDate());
         }
         editor.putString(CAPSULE_KEY, data.toString());
         editor.apply();

@@ -2,25 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="0dp">
+    android:paddingEnd="0dp"
+    android:paddingTop="10dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="154dp"
-        android:layout_height="179dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:padding="5dp"
+        android:layout_margin="10dp"
         app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="5dp"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/titleTextView"
-                android:layout_width="128dp"
-                android:layout_height="50dp"
+                android:layout_width="150dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="TextView"
@@ -33,8 +36,8 @@
 
             <TextView
                 android:id="@+id/typeTextView"
-                android:layout_width="125dp"
-                android:layout_height="20dp"
+                android:layout_width="145dp"
+                android:layout_height="37dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/nunito_regular"
                 android:text="Type:"
@@ -46,8 +49,8 @@
 
             <Button
                 android:id="@+id/viewBtn"
-                android:layout_width="119dp"
-                android:layout_height="40dp"
+                android:layout_width="134dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#00ADB5"
                 android:fontFamily="@font/nunito_regular"
