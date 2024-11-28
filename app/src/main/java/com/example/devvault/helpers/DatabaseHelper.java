@@ -147,4 +147,8 @@ public class DatabaseHelper {
             System.out.println(reflection.toString());
         }
     }
+
+    public static void insertDummyData() {
+        // addCapsule(new Capsule(1));
+    }
 }
