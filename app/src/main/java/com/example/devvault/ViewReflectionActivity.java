@@ -48,6 +48,7 @@ public class ViewReflectionActivity extends AppCompatActivity {
 
         capsuleTitleTextView.setText(capsule.getTitle());
         openedDateTextView.setText(capsule.getOpeningDate());
+        dateCreatedTextView.setText(capsule.getCreationDate());
     }
 
     private void setButtons() {
