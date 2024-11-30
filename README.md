@@ -16,7 +16,7 @@ _Bottom Note:_ I do apologize for the messy commit messages though. The developm
 
 The theme is Dev Time Capsule celebrates a developer's journey by creating a personalized digital snapshot that captures their skills, achievements, and aspirations. It challenges participants to build an interactive project where users can "seal" memories or goals for the future and "open" them later to reflect on their growth. This theme blends storytelling and functionality, encouraging participants to showcase their unique identity as developers while demonstrating creativity and technical expertise.
 
-## Images of the App
+# Images of the App
 
 ## Landing Page
 
