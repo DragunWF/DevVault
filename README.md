@@ -6,6 +6,12 @@ The ICT Week 2024 App Development Hackathon is hosted by a student organization 
 
 *Bottom Note:* I do apologize for the messy commit messages though. The development time was limited and we had to allocate the majority of our focus on finishing the functionalities of our mobile application.
 
+### Developers
+
+- [Marc Plarisan | DragunWF](https://github.com/DragunWF) - Lead Developer
+- [Jay Arnon Sinahunon | JasDevPH](https://github.com/JasDevPH) - Developer, UI/UX Design
+- [Isaac Gidan Garcia | n-ginan](https://github.com/n-ginan) - Developer
+
 ## Hackathon Theme
 
 The theme is Dev Time Capsule celebrates a developer's journey by creating a personalized digital snapshot that captures their skills, achievements, and aspirations. It challenges participants to build an interactive project where users can "seal" memories or goals for the future and "open" them later to reflect on their growth. This theme blends storytelling and functionality, encouraging participants to showcase their unique identity as developers while demonstrating creativity and technical expertise. 
