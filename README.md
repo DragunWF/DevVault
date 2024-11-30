@@ -56,6 +56,12 @@ The theme is Dev Time Capsule celebrates a developer's journey by creating a per
     <img src="docs/images/ReflectionPage.png" alt="ReflectionPage.png" width="300"/>
 </div>
 
+## Create Capsule Page
+
+<div class="image-container">
+    <img src="docs/images/CreateCapsulePage.png" alt="ReflectionPage.png" width="300"/>
+</div>
+
 ## Progress Tracker Page
 
 <div class="image-container">
