@@ -20,30 +20,44 @@ The theme is Dev Time Capsule celebrates a developer's journey by creating a per
 
 ## Landing Page
 
-![](docs/images/LandingPage.png)
+<div class="image-container">
+    <img src="docs/images/LandingPage.png" alt="LandingPage.png" width="300"/>
+</div>
 
 ## Home Page
 
 ### Without Filters
 
-![](docs/images/HomePage.png)
+<div class="image-container">
+    <img src="docs/images/HomePage.png" alt="HomePage.png" width="300"/>
+</div>
 
 ### With Spinner Filter
 
-![](docs/images/HomePageSpinnerFilter.png)
+<div class="image-container">
+    <img src="docs/images/HomePageSpinnerFilter.png" alt="HomePageSpinnerFilter.png" width="300"/>
+</div>
 
 ### With Search Filter
 
-![](docs/images/HomePageSearchFilter.png)
+<div class="image-container">
+    <img src="docs/images/HomePageSearchFilter.png" alt="HomePageSearchFilter.png" width="300"/>
+</div>
 
 ## View Capsule Page
 
-![](docs/images/ViewCapsulePage.png
+<div class="image-container">
+    <img src="docs/images/ViewCapsulePage.png" alt="ViewCapsulePage.png" width="300"/>
+</div>
 
 ## Reflection Page
 
-![](docs/images/ReflectionPage.png)
+<div class="image-container">
+    <img src="docs/images/ReflectionPage.png" alt="ReflectionPage.png" width="300"/>
+</div>
 
 ## Progress Tracker Page
 
-![](docs/images/ProgressPage.JPG)
+<div class="image-container">
+    <img src="docs/images/ProgressPage.JPG" alt="ProgressPage.JPG" width="300"/>
+</div>
