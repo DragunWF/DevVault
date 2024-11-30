@@ -18,4 +18,32 @@ The theme is Dev Time Capsule celebrates a developer's journey by creating a per
 
 ## Images of the App
 
-_Will place images soon_
+## Landing Page
+
+![](docs/images/LandingPage.png)
+
+## Home Page
+
+### Without Filters
+
+![](docs/images/HomePage.png)
+
+### With Spinner Filter
+
+![](docs/images/HomePageSpinnerFilter.png)
+
+### With Search Filter
+
+![](docs/images/HomePageSearchFilter.png)
+
+## View Capsule Page
+
+![](docs/images/ViewCapsulePage.png
+
+## Reflection Page
+
+![](docs/images/ReflectionPage.png)
+
+## Progress Tracker Page
+
+![](docs/images/ProgressPage.JPG)
