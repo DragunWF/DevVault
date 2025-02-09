@@ -3,6 +3,7 @@ package com.example.devvault;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ public class ViewReflectionActivity extends AppCompatActivity {
     private Capsule capsule;
     private Reflection reflection;
 
+    private boolean isNewReflection = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class ViewReflectionActivity extends AppCompatActivity {
 
             capsule = DatabaseHelper.getCapsuleById(SessionData.getViewedCapsuleId());
             reflection = DatabaseHelper.getReflectionByCapsuleId(capsule.getId());
+
+            isNewReflection = reflection == null;
 
             setCapsuleData();
             setButtons();
@@ -55,12 +60,12 @@ public class ViewReflectionActivity extends AppCompatActivity {
         backImageView.setOnClickListener(v -> finish());
         submitReflectionBtn.setOnClickListener(v -> {
             String reflection = Utils.getString(reflectionEditText);
-            if (reflection.isEmpty()) {
-                Utils.toast(ViewReflectionActivity.this, "Your reflection is empty! Please type something to submit.");
-            } else {
+            if (isNewReflection) {
                 DatabaseHelper.addReflection(new Reflection(capsule.getId(), reflection));
-                Utils.longToast(ViewReflectionActivity.this, "Reflection has been successfully set!");
+            } else {
+                DatabaseHelper.editReflectionByCapsuleId(capsule.getId(), reflection);
             }
+            Utils.longToast(ViewReflectionActivity.this, "Reflection has been successfully set!");
         });
     }
 }

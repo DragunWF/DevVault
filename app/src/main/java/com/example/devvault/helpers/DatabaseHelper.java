@@ -58,6 +58,17 @@ public class DatabaseHelper {
         return null;
     }
 
+    public static void editReflectionByCapsuleId(int capsuleId, String content) {
+        List<Reflection> newReflectionSet = new ArrayList<>();
+        for (Reflection reflection : getReflections()) {
+            if (reflection.getCapsuleId() == capsuleId) {
+                reflection.setContent(content);
+            }
+            newReflectionSet.add(reflection);
+        }
+        saveReflections(newReflectionSet);
+    }
+
     public static List<Capsule> getCapsules() {
         final int FIELD_LENGTH_LIMIT = 8;
         List<Capsule> data = new ArrayList<>();
