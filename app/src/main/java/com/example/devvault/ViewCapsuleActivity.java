@@ -47,6 +47,16 @@ public class ViewCapsuleActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            setButtons();
+        } catch (Exception err) {
+            Utils.longToast(this, err.getMessage());
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private void setCapsuleData() {
         titleTextView.setText(capsule.getTitle());
