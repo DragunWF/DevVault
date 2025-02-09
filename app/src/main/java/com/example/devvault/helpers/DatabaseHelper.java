@@ -7,6 +7,7 @@ import com.example.devvault.data.Capsule;
 import com.example.devvault.data.Reflection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DatabaseHelper {
@@ -67,6 +68,7 @@ public class DatabaseHelper {
                 data.add(new Capsule(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]));
             }
         }
+        Collections.reverse(data);
         return data;
     }
 
