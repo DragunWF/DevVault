@@ -107,10 +107,12 @@ public class NewCapsuleActivity extends AppCompatActivity {
                 if (field.isEmpty()) {
                     Utils.longToast(NewCapsuleActivity.this, "Please do not leave any of the fields empty!");
                     return;
+                } else if (field.length() > 2000) {
+                    Utils.longToast(NewCapsuleActivity.this, "Please make sure that any of the fields does not exceed 2000 characters!");
                 }
             }
-            if (title.length() > 14) {
-                Utils.toast(NewCapsuleActivity.this, "Title cannot be more than 14 characters!");
+            if (title.length() > 50) {
+                Utils.toast(NewCapsuleActivity.this, "Title cannot be more than 50 characters!");
                 return;
             }
 
